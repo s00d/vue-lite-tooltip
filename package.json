@@ -2,7 +2,7 @@
   "name": "vue-lite-tooltip",
   "version": "1.0.0",
   "description": "lite tooltip for vue",
-  "main": "dist/vue-empty-image.common.js",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint index.js",
     "build": "babel index.js > index.build.js",
