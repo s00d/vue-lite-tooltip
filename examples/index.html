@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Examples for vue-lite-tooltip</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.js"></script>
+    <script src="../index.build.js"></script>
+</head>
+<body>
+
+<h3><code>show tooltip</code></h3>
+<div id="example1" >
+    <button type="button" v-tooltip="{text: 'hello', position: 'right', width: 100}">test</button>
+</div>
+
+<script>
+    Vue.use(window.VueLiteTooltip);
+    new Vue({
+        el: '#example1',
+    });
+</script>
+
+</body>
+</html>

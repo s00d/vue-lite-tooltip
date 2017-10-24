@@ -1,0 +1,56 @@
+{
+  "name": "vue-lite-tooltip",
+  "version": "1.0.0",
+  "description": "lite tooltip for vue",
+  "main": "dist/vue-empty-image.common.js",
+  "scripts": {
+    "lint": "eslint index.js",
+    "build": "babel index.js > index.build.js",
+    "browserify": "browserify index.js -o index.bundle.js -t --presets es2015",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserify": {
+    "transform": [
+      "loose-envify"
+    ]
+  },
+  "dependencies": {
+    "loose-envify": "^1.2.0",
+    "vue": "^2.5.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-modern-browsers": "^10.0.1",
+    "babelify": "^7.3.0",
+    "chai": "^3.5.0",
+    "eslint": "^1.10.3",
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.2.0",
+    "rollup": "^0.21.2",
+    "rollup-plugin-replace": "^1.1.0",
+    "uglify-js": "^2.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s00d/vue-lite-clipboard"
+  },
+  "bugs": {
+    "url": "https://github.com/s00d/vue-lite-clipboard/issues"
+  },
+  "keywords": [
+    "tooltip",
+    "vue",
+    "vue-directive",
+    "vuejs"
+  ],
+  "author": "Pavel Kuzmin(s00d) <Virus191288@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/s00d/vue-lite-clipboard#readme",
+  "babel": {
+    "presets": ["es2015"],
+    "plugins": ["transform-es2015-modules-umd"]
+  }
+}
