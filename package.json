@@ -6,13 +6,7 @@
   "scripts": {
     "lint": "eslint index.js",
     "build": "babel index.js > index.build.js",
-    "browserify": "browserify index.js -o index.bundle.js -t --presets es2015",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "browserify": {
-    "transform": [
-      "loose-envify"
-    ]
   },
   "dependencies": {
     "vue": "^2.5.2"
@@ -30,10 +24,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/s00d/vue-lite-clipboard"
+    "url": "https://github.com/s00d/vue-lite-tooltip"
   },
   "bugs": {
-    "url": "https://github.com/s00d/vue-lite-clipboard/issues"
+    "url": "https://github.com/s00d/vue-lite-tooltip/issues"
   },
   "keywords": [
     "tooltip",
@@ -43,7 +37,7 @@
   ],
   "author": "Pavel Kuzmin(s00d) <Virus191288@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/s00d/vue-lite-clipboard#readme",
+  "homepage": "https://github.com/s00d/vue-lite-tooltip#readme",
   "babel": {
     "presets": ["es2015"],
     "plugins": ["transform-es2015-modules-umd"]
