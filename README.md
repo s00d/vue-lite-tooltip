@@ -1,6 +1,7 @@
 # vue-lite-tooltip
 
 > show tooltip to vue
+[npm](https://www.npmjs.com/package/vue-lite-tooltip)
 
 ## Requirements
 
