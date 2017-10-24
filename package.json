@@ -1,6 +1,6 @@
 {
   "name": "vue-lite-tooltip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "lite tooltip for vue",
   "main": "index.js",
   "scripts": {
