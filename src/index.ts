@@ -69,18 +69,32 @@ class Tooltip {
             if(opt >= 0) this.hideTooltip(opt);
         }, 20)
     }
+    private readProps(value: {
+        show?: boolean,
+        position?: 'top'|'bottom'|'right'|'left',
+        width?: string,
+        color?:string,
+        background?:string,
+        title?:string,
+        text:string,
+    }) {
+        if(value.show) value.show = true
+        if(value.title) value.text = '<b>'+ value.title + '</b><br>' + value.text
+        if(value.position) value.position = 'top'
+        if(value.width) value.width = '200'
+        return value;
+    }
     install(_vue: typeof Vue) {
         this.genTooltip();
         _vue.directive('tooltip',  (el, binding) => {
-            el.onmouseenter = el.onmouseover = (event) => {
-                if ('show' in binding.value && !binding.value.show) return;
-                this.span.innerHTML = binding.value.text;
-                if(!('position' in binding.value)) binding.value.position = 'top';
-                if(!('width' in binding.value)) binding.value.width = '200';
-                if('color' in binding.value) this.block.style.color = binding.value.color;
-                if('background' in binding.value) this.block.style.backgroundColor = binding.value.color;
-                this.div!.style.width = binding.value.width+'px';
-                switch (binding.value.position) {
+            el.onmouseover = (event) => {
+                const props = this.readProps(binding.value);
+                if (!props.show) return;
+                this.span.innerHTML = props.text;
+                if(props.color) this.block.style.color = props.color;
+                if(props.background) this.block.style.backgroundColor = props.background;
+                this.div!.style.width = props.width+'px';
+                switch (props.position) {
                     case 'top':
                         this.div!.style.left = (event.pageX - (this.div!.clientWidth / 2 - 5))+'px';
                         this.div!.style.top = (event.pageY - (this.div!.clientHeight + 10 ))+'px';
@@ -104,6 +118,9 @@ class Tooltip {
                 if(this.div !== null) {
                     this.div!.style.opacity = '0';
                     this.showTooltip(0);
+                }
+                if('click' in binding.value) {
+                    el.onclick = el.onmouseout;
                 }
             };
 
