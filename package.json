@@ -1,9 +1,9 @@
 {
   "name": "vue-lite-tooltip",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "lite tooltip for vue",
-  "main": "dust/index.js",
-  "types": "dust/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf lib && rimraf dist",
     "build": "tsc && webpack dist/index.js -o dist/index.bundle.js --mode=production",
