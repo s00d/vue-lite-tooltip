@@ -122,7 +122,9 @@ const tooltip = new Tooltip();
 try {
     // @ts-ignore
     window.VueLiteTooltip = tooltip;
-} catch(err) {}
+} catch(err) {
+    console.log(err);
+}
 
 export const VueLiteTooltip = tooltip;
 export default tooltip;

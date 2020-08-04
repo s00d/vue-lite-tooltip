@@ -134,7 +134,9 @@ var tooltip = new Tooltip();
 try {
     window.VueLiteTooltip = tooltip;
 }
-catch (err) { }
+catch (err) {
+    console.log(err);
+}
 exports.VueLiteTooltip = tooltip;
 exports.default = tooltip;
 module.exports = tooltip;
