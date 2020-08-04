@@ -20,7 +20,7 @@ $ npm install vue-lite-tooltip --save
 
 ``` js
 import Vue from 'vue';
-import { VueLiteTooltip } from 'vue-lite-tooltip';
+import VueLiteTooltip from 'vue-lite-tooltip';
 
 Vue.use(VueLiteTooltip)
 
