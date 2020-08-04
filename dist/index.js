@@ -136,4 +136,6 @@ try {
 }
 catch (err) { }
 exports.VueLiteTooltip = tooltip;
+exports.default = tooltip;
+module.exports = tooltip;
 //# sourceMappingURL=index.js.map

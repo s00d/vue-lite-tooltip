@@ -1,14 +1,15 @@
 import Vue from 'vue';
 declare class Tooltip {
-    div: HTMLElement | null;
-    block: HTMLElement | any;
-    span: HTMLElement | any;
-    show: boolean;
-    stop: boolean;
-    genTooltip(): void;
-    showTooltip(opt: number): any;
-    hideTooltip(opt: number): any;
+    private div;
+    private block;
+    private span;
+    private show;
+    private stop;
+    private genTooltip;
+    private showTooltip;
+    private hideTooltip;
     install(_vue: typeof Vue): void;
 }
-export declare let VueLiteTooltip: Tooltip;
-export {};
+declare const tooltip: Tooltip;
+export declare const VueLiteTooltip: Tooltip;
+export default tooltip;

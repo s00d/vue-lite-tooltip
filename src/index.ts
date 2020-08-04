@@ -1,13 +1,13 @@
 import Vue from 'vue'
 
 class Tooltip {
-    div: HTMLElement|null = null;
-    block: HTMLElement|any = null;
-    span: HTMLElement|any = null;
-    show = false;
-    stop = false;
+    private div: HTMLElement|null = null;
+    private block: HTMLElement|any = null;
+    private span: HTMLElement|any = null;
+    private show = false;
+    private stop = false;
     // install(el: HTMLElement, node: HTMLElement) {
-    genTooltip() {
+    private genTooltip() {
         this.div = document.createElement("div");
         this.div.style.position = "absolute";
         this.div.classList.add("tooltip");
@@ -45,7 +45,7 @@ class Tooltip {
             }
         };
     }
-    showTooltip(opt: number): any {
+    private showTooltip(opt: number): any {
         if(this.stop) return this.div!.style.opacity = '0';
         if(!this.show) return;
         setTimeout(() => {
@@ -55,7 +55,7 @@ class Tooltip {
             if(opt <= 0.9) this.showTooltip(opt);
         }, 20)
     }
-    hideTooltip(opt: number): any {
+    private hideTooltip(opt: number): any {
         if(this.stop) return this.div!.style.opacity = '1';
         if(this.show) return;
         setTimeout(() => {
@@ -124,4 +124,7 @@ try {
     window.VueLiteTooltip = tooltip;
 } catch(err) {}
 
-export let VueLiteTooltip = tooltip;
+export const VueLiteTooltip = tooltip;
+export default tooltip;
+module.exports = tooltip;
+
