@@ -75,24 +75,32 @@ var Tooltip = (function () {
                 _this.hideTooltip(opt);
         }, 20);
     };
+    Tooltip.prototype.readProps = function (value) {
+        if (value.show)
+            value.show = true;
+        if (value.title)
+            value.text = '<b>' + value.title + '</b><br>' + value.text;
+        if (value.position)
+            value.position = 'top';
+        if (value.width)
+            value.width = '200';
+        return value;
+    };
     Tooltip.prototype.install = function (_vue) {
         var _this = this;
         this.genTooltip();
         _vue.directive('tooltip', function (el, binding) {
             el.onmouseover = function (event) {
-                if ('show' in binding.value && !binding.value.show)
+                var props = _this.readProps(binding.value);
+                if (!props.show)
                     return;
-                _this.span.innerHTML = binding.value.text;
-                if (!('position' in binding.value))
-                    binding.value.position = 'top';
-                if (!('width' in binding.value))
-                    binding.value.width = '200';
-                if ('color' in binding.value)
-                    _this.block.style.color = binding.value.color;
-                if ('background' in binding.value)
-                    _this.block.style.backgroundColor = binding.value.color;
-                _this.div.style.width = binding.value.width + 'px';
-                switch (binding.value.position) {
+                _this.span.innerHTML = props.text;
+                if (props.color)
+                    _this.block.style.color = props.color;
+                if (props.background)
+                    _this.block.style.backgroundColor = props.background;
+                _this.div.style.width = props.width + 'px';
+                switch (props.position) {
                     case 'top':
                         _this.div.style.left = (event.pageX - (_this.div.clientWidth / 2 - 5)) + 'px';
                         _this.div.style.top = (event.pageY - (_this.div.clientHeight + 10)) + 'px';
@@ -117,7 +125,13 @@ var Tooltip = (function () {
                     _this.div.style.opacity = '0';
                     _this.showTooltip(0);
                 }
+                if ('click' in binding.value) {
+                    el.onclick = el.onmouseout;
+                }
             };
+            if ('click' in binding.value) {
+                el.onclick = el.onmouseenter;
+            }
             el.onmouseout = function (event) {
                 _this.show = false;
                 if (_this.div !== null) {

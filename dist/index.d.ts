@@ -8,6 +8,7 @@ declare class Tooltip {
     private genTooltip;
     private showTooltip;
     private hideTooltip;
+    private readProps;
     install(_vue: typeof Vue): void;
 }
 declare const tooltip: Tooltip;
