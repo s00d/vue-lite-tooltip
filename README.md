@@ -4,6 +4,10 @@
 
 [npm](https://www.npmjs.com/package/vue-lite-tooltip)
 
+## EXAMPLE
+
+https://s00d.github.io/vue-lite-tooltip/index.html
+
 ## Requirements
 
 - vue: ^2.0.0
