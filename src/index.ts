@@ -72,7 +72,7 @@ class Tooltip {
     install(_vue: typeof Vue) {
         this.genTooltip();
         _vue.directive('tooltip',  (el, binding) => {
-            el.onmouseover = (event) => {
+            el.onmouseenter = el.onmouseover = (event) => {
                 if ('show' in binding.value && !binding.value.show) return;
                 this.span.innerHTML = binding.value.text;
                 if(!('position' in binding.value)) binding.value.position = 'top';
@@ -106,6 +106,10 @@ class Tooltip {
                     this.showTooltip(0);
                 }
             };
+
+            if('click' in binding.value) {
+                el.onclick = el.onmouseenter;
+            }
             el.onmouseout = (event) => {
                 this.show = false;
                 if(this.div !== null) {
